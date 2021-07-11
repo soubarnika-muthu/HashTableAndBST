@@ -12,7 +12,7 @@ namespace HashTableAndBST
         {
             Console.WriteLine("Implementaion of Hash Tables and Binary Search Tree");
             //creating object for MyMapnode clas
-            MyMapNode<string, string> myMapNode = new MyMapNode<string, string>(6);
+           /* MyMapNode<string, string> myMapNode = new MyMapNode<string, string>(6);
             
             myMapNode.Add("1", "Paranoids");
             myMapNode.Add("2", "are");
@@ -36,7 +36,15 @@ namespace HashTableAndBST
             string key = "18";
             string value = myMapNode.Get(key);
             Console.WriteLine("key {0} holding value {1} ", key, value);
-            myMapNode.Remove(key);
+            myMapNode.Remove(key);*/
+            //Implementaion of binary search tree
+            Console.WriteLine("Welcome to Binary Search Tree");
+            BinarySearchTree<int> binarySearch = new BinarySearchTree<int>();
+            binarySearch.AddNode(56);
+            binarySearch.AddNode(30);
+            binarySearch.AddNode(70);
+            binarySearch.AddNode(68);
+            binarySearch.display(binarySearch.root);
 
             Console.ReadLine();
         }
