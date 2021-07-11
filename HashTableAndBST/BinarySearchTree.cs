@@ -65,6 +65,19 @@ namespace HashTableAndBST
                 }
             }
         }
+        public int SizeOf(TreeNode<T> parent)
+        {
+            //if the root is null then tree is empty
+            if (parent == null)
+            {
+                return 0;
+            }
+            //else find size of left sub tree and size of right sub tree then add together with one root node
+            else
+            {
+                return (SizeOf(parent.Left) + 1 + SizeOf(parent.Right));
+            }
+        }
 
         public void display(TreeNode<T> parent)
         {
