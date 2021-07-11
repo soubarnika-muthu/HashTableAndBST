@@ -3,7 +3,9 @@
 namespace HashTableAndBST
 {
     //UC1-Finding frequency of words using hash operation
-    //UC1-Finding frequency of large paragraph using hash operation
+    //UC2-Finding frequency of large paragraph using hash operation
+    //UC3-Removing given word from Phrase using hash operation
+
     class Program
     {
         static void Main(string[] args)
@@ -34,6 +36,7 @@ namespace HashTableAndBST
             string key = "18";
             string value = myMapNode.Get(key);
             Console.WriteLine("key {0} holding value {1} ", key, value);
+            myMapNode.Remove(key);
 
             Console.ReadLine();
         }

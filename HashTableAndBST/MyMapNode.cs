@@ -8,7 +8,7 @@ namespace HashTableAndBST
 {
     public class MyMapNode<K, V>
     {
-     // structure to create Key Value pair
+        // structure to create Key Value pair
         public struct KeyValue<K, V>
         {
             public K Key { get; set; }
@@ -38,13 +38,13 @@ namespace HashTableAndBST
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             foreach (KeyValue<K, V> item in linkedList)
             {
-                if (item.Key.Equals(key)) 
-                return item.Value;
+                if (item.Key.Equals(key))
+                    return item.Value;
             }
             return default(V);
 
         }
-      //Method to add new Key value pair to the hash table
+        //Method to add new Key value pair to the hash table
         public void Add(K key, V value)
         {
             int position = GetArrayPosition(key);
@@ -53,7 +53,32 @@ namespace HashTableAndBST
             linkedList.AddLast(item);
             Console.WriteLine(item.Key + " " + item.Value);
         }
-      //Method to get linked list for the hash value
+        //Method to remove new Key value pair to the hash table
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemfound = false;
+            KeyValue<K, V> founditem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemfound = true;
+                    founditem = item;
+                }
+
+
+            }
+            if (itemfound)
+            {
+                linkedList.Remove(founditem);
+                Console.WriteLine("Removed Successfully with key " + founditem.Key);
+            }
+        }
+
+
+        //Method to get linked list for the hash value
         protected LinkedList<KeyValue<K, V>> GetLinkedList(int position)
         {
             LinkedList<KeyValue<K, V>> linkedList = items[position];
@@ -64,18 +89,18 @@ namespace HashTableAndBST
             }
             return linkedList;
         }
-  /*public void Display()
-        {
-            foreach(var linkedlist in items)
-            {
-                if(linkedlist!=null)
-                {
-                    foreach (var element in linkedlist) ;
-                    string result = element.ToString();
+        /*public void Display()
+              {
+                  foreach(var linkedlist in items)
+                  {
+                      if(linkedlist!=null)
+                      {
+                          foreach (var element in linkedlist) ;
+                          string result = element.ToString();
 
 
-                }
-            }
-        }*/
+                      }
+                  }
+              }*/
     }
 }
