@@ -2,9 +2,14 @@
 
 namespace HashTableAndBST
 {
+    //Hash Operation
     //UC1-Finding frequency of words using hash operation
     //UC2-Finding frequency of large paragraph using hash operation
     //UC3-Removing given word from Phrase using hash operation
+    //BST operation
+    //UC1-Adding new node to the BST
+    //UC2-Finding Size of BST
+    //UC3-Searching Node in BST
 
     class Program
     {

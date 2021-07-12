@@ -69,6 +69,7 @@ namespace HashTableAndBST
                 }
             }
         }
+        //method to find size of Binary Search Tree
         public int SizeOf(TreeNode parent)
         {
             //if the root is null then tree is empty
@@ -82,7 +83,8 @@ namespace HashTableAndBST
                 return (SizeOf(parent.Left) + 1 + SizeOf(parent.Right));
             }
         }
-        public  bool findNodeInBST(TreeNode node, int value)
+        //method to find Node in Binary Search Tree
+        public bool findNodeInBST(TreeNode node, int value)
         {
             if (null == node)
             {
