@@ -8,6 +8,8 @@ namespace HashTableAndBST
 
     class Program
     {
+        private static bool flag;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Implementaion of Hash Tables and Binary Search Tree");
@@ -39,7 +41,7 @@ namespace HashTableAndBST
              myMapNode.Remove(key);*/
             //Implementaion of binary search tree
             Console.WriteLine("Welcome to Binary Search Tree");
-            BinarySearchTree<int> binarySearch = new BinarySearchTree<int>();
+            BinarySearchTree binarySearch = new BinarySearchTree();
             binarySearch.AddNode(56);
             binarySearch.AddNode(30);
             binarySearch.AddNode(70);
@@ -55,6 +57,17 @@ namespace HashTableAndBST
             binarySearch.AddNode(16);
             binarySearch.display(binarySearch.root);
             Console.WriteLine("the number of node in the tree is :{0}", binarySearch.SizeOf(binarySearch.root));
+            bool result =binarySearch.findNodeInBST(binarySearch.root, 10);
+
+            if(result==true)
+            {
+                 Console.WriteLine("Node {0} Present",10);
+             }
+             else
+             {
+                 Console.WriteLine("Node not Present");
+             }
+
         }
     }
 }

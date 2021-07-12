@@ -7,27 +7,31 @@ using System.Threading.Tasks;
 namespace HashTableAndBST
 {
     //create the class for storing the value in the node 
-    public class TreeNode<T>
+    public class TreeNode
     {
-        public T value;
-        public TreeNode<T> Left;
-        public TreeNode<T> Right;
-        public TreeNode(T value)
+        public int value;
+        public TreeNode Left;
+        public TreeNode Right;
+        public TreeNode(int value)
         {
             this.value = value;
             this.Left = null;
             this.Right = null;
         }
     }
+  
+
     //create the binary search tree class that extends IComparable for comparision
-    class BinarySearchTree<T> where T : IComparable
+    class BinarySearchTree//<T> where T : IComparable
+
     {
-        public TreeNode<T> root;
+        public static bool flag = false;
+        public TreeNode root;
 
         //create the add node method
-        public void AddNode(T value)
+        public void AddNode(int value)
         {
-            TreeNode<T> newNode = new TreeNode<T>(value);
+            TreeNode newNode = new TreeNode(value);
             //if the new node is the first node then point root tothe current node
             if (root == null)
             {
@@ -36,8 +40,8 @@ namespace HashTableAndBST
             //else check for greater or lesser condition
             else
             {
-                TreeNode<T> parent = root;
-                TreeNode<T> current = root;
+                TreeNode parent = root;
+                TreeNode current = root;
                 //continue the below process till the target position  is achieved
                 while (true)
                 {
@@ -65,7 +69,7 @@ namespace HashTableAndBST
                 }
             }
         }
-        public int SizeOf(TreeNode<T> parent)
+        public int SizeOf(TreeNode parent)
         {
             //if the root is null then tree is empty
             if (parent == null)
@@ -78,8 +82,29 @@ namespace HashTableAndBST
                 return (SizeOf(parent.Left) + 1 + SizeOf(parent.Right));
             }
         }
+        public  bool findNodeInBST(TreeNode node, int value)
+        {
+            if (null == node)
+            {
+                return false;
+            }
+            //Condition 1. we found the value
+            if (node.value == value)
+            {
+                return true;
+            }
+            //Condition 2. 
+            //Value is less than node value. so go left sub tree
+            else if (value < node.value)
+                return findNodeInBST(node.Left, value);
+            //Condition 3. 
+            //Value is greater than node value. so go right sub tree
+            else
+                return findNodeInBST(node.Right, value);
+        }
 
-        public void display(TreeNode<T> parent)
+
+        public void display(TreeNode parent)
         {
             if (parent != null)
             {
